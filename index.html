@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aliandy Jiménez — Página Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #101830;
+    --panel: #1a2340;
+    --panel-2: #151d38;
+    --line: #2b3560;
+    --text: #ece8dd;
+    --text-dim: #9aa3c4;
+    --accent: #e8a33d;
+    --accent-2: #59bfa3;
+    --radius: 6px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    padding: 96px 0 72px;
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-name{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    line-height: 1.02;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-name em{
+    display: block;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .hero-role{
+    margin-top: 22px;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    max-width: 34ch;
+  }
+
+  .hero-role strong{
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .photo-frame{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .photo-frame .chrome{
+    display: flex;
+    gap: 6px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .chrome span{
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--line);
+  }
+
+  .chrome span:nth-child(1){ background: #d9765a; }
+  .chrome span:nth-child(2){ background: #e8c34d; }
+  .chrome span:nth-child(3){ background: var(--accent-2); }
+
+  .photo-body{
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--panel-2);
+  }
+
+  .photo-body img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .photo-placeholder{
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+
+  section{
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0 0 28px;
+    color: var(--text);
+  }
+
+  /* contact — terminal card */
+
+  .terminal{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .terminal .chrome{
+    display: flex;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .terminal-body{
+    padding: 22px 24px 26px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92rem;
+  }
+
+  .terminal-line{
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    flex-wrap: wrap;
+  }
+
+  .terminal-line .prompt{
+    color: var(--accent-2);
+    flex-shrink: 0;
+  }
+
+  .terminal-line .key{
+    color: var(--text-dim);
+    flex-shrink: 0;
+  }
+
+  .terminal-line .val{
+    color: var(--text);
+  }
+
+  /* hobbies */
+
+  .hobbies{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .hobby{
+    flex: 1 1 160px;
+    padding: 20px 18px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-size: 0.98rem;
+  }
+
+  .hobby .glyph{
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  /* social */
+
+  .social-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .social-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .social-link:hover{
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* video */
+
+  .video-frame{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .video-frame .chrome{
+    display: flex;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .video-container{
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+
+  .video-container iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  footer{
+    padding: 32px 0 48px;
+    color: var(--text-dim);
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 720px){
+    .hero{
+      grid-template-columns: 1fr;
+      padding: 64px 0 48px;
+    }
+    .photo-frame{ max-width: 260px; }
+    .hobby{ flex: 1 1 45%; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="hero">
+      <div>
+        <h1 class="hero-name">Aliandy Leonidas<br><em>Jiménez Vicente</em></h1>
+        <p class="hero-role">Estudiante de <strong>Desarrollo de Software</strong> en el ITLA, sexto trimestre. Trabajo del lado backend con .NET y C#, y disfruto armar cosas que solucionen problemas reales.</p>
+      </div>
+      <div class="photo-frame">
+        <div class="chrome"><span></span><span></span><span></span></div>
+        <div class="photo-body">
+          <img src="foto.jpg" alt="Foto de Aliandy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="photo-placeholder" style="display:none;">foto.jpg<br>no encontrada</div>
+        </div>
+      </div>
+    </div>
+
+    <section id="contacto">
+      <h2 class="section-head">Contacto</h2>
+      <div class="terminal">
+        <div class="chrome"><span></span><span></span><span></span></div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$</span><span class="key">telefono</span><span class="val">(849) 405-8346</span></div>
+          <div class="terminal-line"><span class="prompt">$</span><span class="key">correo</span><span class="val">jimenezaliandy@gmail.com</span></div>
+          <div class="terminal-line"><span class="prompt">$</span><span class="key">direccion</span><span class="val">Santo Domingo Este, República Dominicana</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hobbies">
+      <h2 class="section-head">Hobbies</h2>
+      <div class="hobbies">
+        <div class="hobby"><span class="glyph">🎮</span>Videojuegos</div>
+        <div class="hobby"><span class="glyph">🎵</span>Música</div>
+        <div class="hobby"><span class="glyph">📚</span>Lectura</div>
+        <div class="hobby"><span class="glyph">🎬</span>Películas</div>
+      </div>
+    </section>
+
+    <section id="redes">
+      <h2 class="section-head">Redes sociales</h2>
+      <div class="social-row">
+        <a class="social-link" href="https://www.instagram.com/aliandljimenez/" target="_blank" rel="noopener">Instagram</a>
+        <a class="social-link" href="https://www.linkedin.com/in/aliandy-jim%C3%A9nez-595037318/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <section id="video">
+      <h2 class="section-head">Video favorito del momento</h2>
+      <div class="video-frame">
+        <div class="chrome"><span></span><span></span><span></span></div>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/bmndi8m9Rms?rel=0"
+            title="Video de YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Aliandy Jiménez Vicente</footer>
+
+  </div>
+
+</body>
+</html>
